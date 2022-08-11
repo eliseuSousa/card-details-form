@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <link rel="stylesheet" href="./css/globla.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <main class="main">
+    <div class="container__esquerdo"></div>
+    <div class="container__direito">
+      <form class="formulario">
+        <div class="input">
+          <input class="name" type="text" placeholder="e.g. Jane Appleseed">
+          <label class="name__label" for="name">Cardholder Name</label>
+        </div>
+
+        <div class="input">
+          <input class="card__number" type="text" placeholder="e.g. 1234 5678 9123 0000">
+          <label class="card__number--label" for="card__number">Card Number</label>
+        </div>
+
+        <div class="input validade__card">
+          <div class="validity">
+            <input class="date month" type="text" placeholder="MM">
+            <input class="date year" type="text" placeholder="YY">
+            <label class="validity__label" for="date">Exp Date (MM/YY)</label>
+          </div>
+
+          <div class="cvc">
+            <input type="text" class="input__cvc" placeholder="CVC">
+            <label class="input__cvc--label" for="input__cvc">CVC</label>
+          </div>
+        </div>
+
+        <button class="submit">Confirm</button>
+      </form>
+    </div>
+
+    <div class="card__front">
+      <img class="logo" src="./images/card-logo.svg" alt="Logo do cartão" >
+      <div class="number">
+        <span>0000</span>
+        <span>0000</span>
+        <span>0000</span>
+        <span>0000</span>
+      </div>
+
+      <h2 class="nome">Jane Appleseed</h2>
+
+      <span class="validade">00/00</span>
+    </div>
+
+    <div class="card__back">
+      <span>000</span>
+    </div>
+
+  </main>
+
+</body>
+</html>
