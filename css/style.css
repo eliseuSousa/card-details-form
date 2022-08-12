@@ -24,7 +24,7 @@ main.main {
 
       div.input {
         position: relative;
-        margin-bottom: 5.2rem;
+        margin-bottom: 6.4rem;
       }
 
       div.input:last-child {
@@ -59,11 +59,15 @@ main.main {
           font-size: 1.6rem;
         }
 
+        input.error {
+          border: .2rem solid var(--input-error);
+        }
+
         input.name, input.card__number {
           min-width: 100%;
         }
 
-        label {
+        label, span.error {
           position: absolute;
           left: -2%;
           top: -68%;
@@ -73,6 +77,19 @@ main.main {
           color: var(--very-dark-violet);
           letter-spacing: .2rem;
           font-weight: bold;
+        }
+
+        span.error {
+          transition: all .5s;
+          color: var(--input-error);
+          text-transform: none;
+          top: 95%;
+          opacity: 0;
+        }
+
+        span.error--active {
+          opacity: 1;
+          transform: translateY(-.3rem);
         }
 
         label.input__cvc--label {
@@ -118,6 +135,11 @@ main.main {
         background: hsl(249, 99%, 64%);
       }
 
+      button.submit:disabled {
+        background: var(--dark-grayish-violet);
+        cursor: not-allowed;
+      }
+
   div.card__front, div.card__back {
     position: absolute;
     width: 32%;
@@ -129,14 +151,14 @@ main.main {
 
   div.card__front {
     background-image: url('../images/bg-card-front.png');
-    top: 10%;
+    top: 8%;
     left: 8%;
   }
 
     img.logo {
       position: absolute;
+      top: 10%;
       left: 8%;
-      top: 8%;
       width: 20%;
     }
 

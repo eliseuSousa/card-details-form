@@ -10,6 +10,7 @@
 
   <link rel="stylesheet" href="./css/globla.css">
   <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./main.js"></script>
 </head>
 <body>
 
@@ -18,25 +19,26 @@
     <div class="container__direito">
       <form class="formulario">
         <div class="input">
-          <input class="name" type="text" placeholder="e.g. Jane Appleseed">
           <label class="name__label" for="name">Cardholder Name</label>
+          <input class="name" type="text" placeholder="e.g. Jane Appleseed">
+          <span class="error">Wrong format</span>
         </div>
 
         <div class="input">
-          <input class="card__number" type="text" placeholder="e.g. 1234 5678 9123 0000">
           <label class="card__number--label" for="card__number">Card Number</label>
+          <input class="card__number" type="text" placeholder="e.g. 1234 5678 9123 0000">
         </div>
 
         <div class="input validade__card">
           <div class="validity">
+            <label class="validity__label" for="date">Exp Date (MM/YY)</label>
             <input class="date month" type="text" placeholder="MM">
             <input class="date year" type="text" placeholder="YY">
-            <label class="validity__label" for="date">Exp Date (MM/YY)</label>
           </div>
 
           <div class="cvc">
-            <input type="text" class="input__cvc" placeholder="CVC">
             <label class="input__cvc--label" for="input__cvc">CVC</label>
+            <input type="text" class="input__cvc" placeholder="CVC">
           </div>
         </div>
 
