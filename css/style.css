@@ -87,6 +87,10 @@ main.main {
           opacity: 0;
         }
 
+        span.error_cvc {
+          left: 58%;
+        }
+
         span.error--active {
           opacity: 1;
           transform: translateY(-.3rem);

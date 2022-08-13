@@ -4,6 +4,7 @@
   const inputCardNumber = document.querySelector('.card__number');
   const inputMonth = document.querySelector('.month');
   const inputYear = document.querySelector('.year');
+  const inputCvc = document.querySelector('.input__cvc');
   const submitButton = document.querySelector('.submit');
 
   const validadeName = (event) => {
@@ -69,8 +70,23 @@
     }
   }
 
+  const ValidaCvc = (event) => {
+    const input = event.currentTarget.value;
+    
+    if (input == '' || input.length != 3) {
+      submitButton.setAttribute('disabled', 'disabled');
+      inputCvc.classList.add('error');
+      inputCvc.nextElementSibling.classList.add('error--active');
+    } else {
+      submitButton.removeAttribute('disabled', 'disabled');
+      inputCvc.classList.remove('error');
+      inputCvc.nextElementSibling.classList.remove('error--active');
+    }
+  }
+
   inputName.addEventListener('input', validadeName);
   inputCardNumber.addEventListener('input', validadeCardNumber);
   inputMonth.addEventListener('input', validadeMonth);
   inputYear.addEventListener('input', validadeYear);
+  inputCvc.addEventListener('input', ValidaCvc);
 })();
