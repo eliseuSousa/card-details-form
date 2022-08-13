@@ -55,7 +55,22 @@
     }
   }
 
+  const validadeYear = (event) => {
+    const input = event.currentTarget.value;
+
+    if(input == '' || input.length != 2) {
+      submitButton.setAttribute('disabled', 'disabled');
+      inputYear.classList.add('error');
+      inputYear.nextElementSibling.classList.add('error--active');
+    } else {
+      submitButton.removeAttribute('disabled', 'disabled');
+      inputYear.classList.remove('error');
+      inputYear.nextElementSibling.classList.remove('error--active');
+    }
+  }
+
   inputName.addEventListener('input', validadeName);
   inputCardNumber.addEventListener('input', validadeCardNumber);
   inputMonth.addEventListener('input', validadeMonth);
+  inputYear.addEventListener('input', validadeYear);
 })();
