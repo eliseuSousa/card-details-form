@@ -2,6 +2,8 @@
 
   const inputName = document.querySelector('.name');
   const inputCardNumber = document.querySelector('.card__number');
+  const inputMonth = document.querySelector('.month');
+  const inputYear = document.querySelector('.year');
   const submitButton = document.querySelector('.submit');
 
   const validadeName = (event) => {
@@ -39,6 +41,21 @@
     }
   }
 
+  const validadeMonth = (event) => {
+    const input = event.currentTarget.value;
+    
+    if(input == '' || input.length != 2 || parseInt(input) > 12 || parseInt(input) < 1) {
+      submitButton.setAttribute('disabled', 'disabled');
+      inputMonth.classList.add('error');
+      inputYear.nextElementSibling.classList.add('error--active');
+    } else {
+      submitButton.removeAttribute('disabled', 'disabled');
+      inputMonth.classList.remove('error');
+      inputYear.nextElementSibling.classList.remove('error--active');
+    }
+  }
+
   inputName.addEventListener('input', validadeName);
   inputCardNumber.addEventListener('input', validadeCardNumber);
+  inputMonth.addEventListener('input', validadeMonth);
 })();

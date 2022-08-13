@@ -33,13 +33,30 @@
         <div class="input validade__card">
           <div class="validity">
             <label class="validity__label" for="date">Exp Date (MM/YY)</label>
-            <input class="date month" type="text" placeholder="MM">
-            <input class="date year" type="text" placeholder="YY">
+            <input 
+            class="date month" 
+            type="text" 
+            placeholder="MM"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+            maxlength="2">
+            <input 
+            class="date year" 
+            type="text" 
+            placeholder="YY"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  
+            maxlength="2">
+            <span class="error">Can't be blank</span>
           </div>
 
           <div class="cvc">
             <label class="input__cvc--label" for="input__cvc">CVC</label>
-            <input type="text" class="input__cvc" placeholder="CVC">
+            <input 
+            type="text"
+            class="input__cvc"
+            placeholder="CVC"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+            maxlength="3">
+            <span class="error">Cant't be blank</span>
           </div>
         </div>
 
