@@ -1,6 +1,7 @@
 (() => {
 
   const inputName = document.querySelector('.name');
+  const inputCardNumber = document.querySelector('.card__number');
   const submitButton = document.querySelector('.submit');
 
   const validadeName = (event) => {
@@ -21,6 +22,23 @@
     }
   }
 
-  inputName.addEventListener('input', validadeName);
+  const validadeCardNumber = (event) => {
+    const input = event.currentTarget;
+    const regex = /\d{16}/;
 
+    const testCardNumberTest = regex.test(input.value);
+
+    if(!testCardNumberTest) {
+      submitButton.setAttribute('disabled', 'disabled');
+      inputCardNumber.classList.add('error');
+      inputCardNumber.nextElementSibling.classList.add('error--active');
+    } else {
+      submitButton.removeAttribute('disabled', 'disabled');
+      inputCardNumber.classList.remove('error');
+      inputCardNumber.nextElementSibling.classList.remove('error--active');
+    }
+  }
+
+  inputName.addEventListener('input', validadeName);
+  inputCardNumber.addEventListener('input', validadeCardNumber);
 })();

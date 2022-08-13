@@ -83,7 +83,7 @@ main.main {
           transition: all .5s;
           color: var(--input-error);
           text-transform: none;
-          top: 95%;
+          top: 105%;
           opacity: 0;
         }
 
