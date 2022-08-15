@@ -9,7 +9,7 @@
   const displayName = document.querySelector('.nome');
   const displayDateValidade = document.querySelector('.validade');
   const displayCvc = document.querySelector('.card__back > span');
-  const submitButton = document.querySelector('.submit');
+  const submitButton = document.querySelector('#submit');
 
   const validadeName = (event) => {
     const input = event.currentTarget;
@@ -18,7 +18,6 @@
     const testName = regex.test(input.value);
 
     if(!testName) {
-      submitButton.setAttribute('disabled', 'disabled');
       inputName.classList.add('error');
       inputName.nextElementSibling.classList.add('error--active');
 
@@ -37,7 +36,6 @@
     const testCardNumberTest = regex.test(input.value);
 
     if(!testCardNumberTest && input.value != 16) {
-      submitButton.setAttribute('disabled', 'disabled');
       inputCardNumber.classList.add('error');
       inputCardNumber.nextElementSibling.classList.add('error--active');
     } else {
@@ -55,7 +53,6 @@
     const input = event.currentTarget.value;
     
     if(input == '' || input.length != 2 || parseInt(input) > 12 || parseInt(input) < 1) {
-      submitButton.setAttribute('disabled', 'disabled');
       inputMonth.classList.add('error');
       inputYear.nextElementSibling.classList.add('error--active');
     } else {
@@ -75,7 +72,6 @@
     const input = event.currentTarget.value;
 
     if(input == '' || input.length != 2) {
-      submitButton.setAttribute('disabled', 'disabled');
       inputYear.classList.add('error');
       inputYear.nextElementSibling.classList.add('error--active');
     } else {
@@ -94,7 +90,6 @@
   const ValidaCvc = (event) => {
     const input = event.currentTarget.value;
     if (input == '' || input.length != 3) {
-      submitButton.setAttribute('disabled', 'disabled');
       inputCvc.classList.add('error');
       inputCvc.nextElementSibling.classList.add('error--active');
     } else {
@@ -110,4 +105,23 @@
   inputMonth.addEventListener('input', validadeMonth);
   inputYear.addEventListener('input', validadeYear);
   inputCvc.addEventListener('input', ValidaCvc);
+
+  submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const formulario = document.querySelector('form');
+    formulario.remove();
+
+    const containerDireito = document.querySelector('.container__direito');
+    const novaDiv = document.createElement('div');
+    novaDiv.classList.add('success');
+    novaDiv.innerHTML = `<img class="success__icone" src="./images/icon-complete.svg" alt="Icon complete">
+    <div class="texto">
+      <h1 class="texto__agradecimento">Thank you!</h1>
+      <p class="texto__paragrafo">We've added your card details</p>
+    </div>
+    <button class="success__finalizar botao">Continue</button>`;
+
+    containerDireito.appendChild(novaDiv);
+    
+  })
 })();
