@@ -26,7 +26,12 @@
 
         <div class="input">
           <label class="card__number--label" for="card__number">Card Number</label>
-          <input class="card__number" type="text" placeholder="e.g. 1234 5678 9123 0000">
+          <input class="card__number" 
+            type="text" 
+            placeholder="e.g. 1234 5678 9123 0000" 
+            maxlength="16"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+          >
           <span class="error">Wrong format, numbers only</span>
         </div>
 
@@ -34,28 +39,31 @@
           <div class="validity">
             <label class="validity__label" for="date">Exp Date (MM/YY)</label>
             <input 
-            class="date month" 
-            type="text" 
-            placeholder="MM"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
-            maxlength="2">
+              class="date month" 
+              type="text" 
+              placeholder="MM"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+              maxlength="2"
+            >
             <input 
-            class="date year" 
-            type="text" 
-            placeholder="YY"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  
-            maxlength="2">
+              class="date year" 
+              type="text" 
+              placeholder="YY"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  
+              maxlength="2"
+            >
             <span class="error">Can't be blank</span>
           </div>
 
           <div class="cvc">
             <label class="input__cvc--label" for="input__cvc">CVC</label>
             <input 
-            type="text"
-            class="input__cvc"
-            placeholder="CVC"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
-            maxlength="3">
+              type="text"
+              class="input__cvc"
+              placeholder="CVC"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+              maxlength="3"
+            >
             <span class="error error_cvc">Cant't be blank</span>
           </div>
         </div>

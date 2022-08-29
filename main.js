@@ -31,11 +31,8 @@
 
   const validadeCardNumber = (event) => {
     const input = event.currentTarget;
-    const regex = /\d{16}/;
 
-    const testCardNumberTest = regex.test(input.value);
-
-    if(!testCardNumberTest && input.value != 16) {
+    if(input.value.length < 16) {
       inputCardNumber.classList.add('error');
       inputCardNumber.nextElementSibling.classList.add('error--active');
     } else {
@@ -108,6 +105,8 @@
 
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
+    const erros = document.querySelectorAll('.error--active');
+
     const formulario = document.querySelector('form');
     formulario.remove();
 
