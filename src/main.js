@@ -84,7 +84,7 @@
     }
   }
 
-  const ValidaCvc = (event) => {
+  const validaCvc = (event) => {
     const input = event.currentTarget.value;
     if (input == '' || input.length != 3) {
       inputCvc.classList.add('error');
@@ -97,30 +97,48 @@
     }
   }
 
+  const validaFormulario = () => {
+    const inputs = document.querySelectorAll('input');
+    let inputsErrados = 0;
+    inputs.forEach(input => {
+      if(input.value.length == 0) {
+        input.classList.add('error');
+        input.nextElementSibling.classList.add('error--active');
+        inputsErrados++;
+      }
+    });
+    
+    return (inputsErrados > 0) ? false : true;
+  }
+
   inputName.addEventListener('input', validadeName);
   inputCardNumber.addEventListener('input', validadeCardNumber);
   inputMonth.addEventListener('input', validadeMonth);
   inputYear.addEventListener('input', validadeYear);
-  inputCvc.addEventListener('input', ValidaCvc);
+  inputCvc.addEventListener('input', validaCvc);
 
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
-    const erros = document.querySelectorAll('.error--active');
+    const ehValido = validaFormulario();
+    
+    if(ehValido) {
+      const formulario = document.querySelector('form');
+      formulario.remove();
 
-    const formulario = document.querySelector('form');
-    formulario.remove();
+      const containerDireito = document.querySelector('.container__direito');
+      const novaDiv = document.createElement('div');
+      novaDiv.classList.add('success');
+      novaDiv.innerHTML = `<img class="success__icone" src="./src/images/icon-complete.svg" alt="Icon complete">
+      <div class="texto">
+        <h1 class="texto__agradecimento">Thank you!</h1>
+        <p class="texto__paragrafo">We've added your card details</p>
+      </div>
+      <button class="success__finalizar botao">Continue</button>`;
 
-    const containerDireito = document.querySelector('.container__direito');
-    const novaDiv = document.createElement('div');
-    novaDiv.classList.add('success');
-    novaDiv.innerHTML = `<img class="success__icone" src="./images/icon-complete.svg" alt="Icon complete">
-    <div class="texto">
-      <h1 class="texto__agradecimento">Thank you!</h1>
-      <p class="texto__paragrafo">We've added your card details</p>
-    </div>
-    <button class="success__finalizar botao">Continue</button>`;
-
-    containerDireito.appendChild(novaDiv);
+      containerDireito.appendChild(novaDiv);
+    } else {
+      submitButton.setAttribute('disabled', 'disabled');
+    }
     
   })
 })();
