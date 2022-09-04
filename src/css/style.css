@@ -245,3 +245,43 @@ p.texto__paragrafo {
   color: var(--dark-grayish-violet);
   font-size: 1.4rem;
 }
+
+@media (max-width: 425px) {
+  .main {
+    flex-direction: column;
+  }
+
+    div.container__esquerdo {
+      min-height: 40vh;
+      padding: 14rem 0;
+    }
+
+    div.container__direito {
+      min-height: 65vh;
+    }
+
+      form.formulario {
+        max-width: 85%;
+        padding: 16rem 0 3rem 0;
+      }
+
+    div.card__front, div.card__back {
+      width: 82%;
+      height: 24%;
+    }
+
+    div.card__front {
+      top: 18%;
+      left: 3%;
+      z-index: 1;
+    }
+
+      div.number {
+        width: 85%;
+      }
+
+    div.card__back {
+      top: 4%;
+      left: 13%;
+    }
+}
