@@ -146,7 +146,7 @@ main.main {
 
   div.card__front, div.card__back {
     position: absolute;
-    min-width: 134.625px;
+    min-width: 32%;
     box-shadow: 7px 12px 50px hsla(279, 6%, 55%, 0.4);
     height: 36%;
     border-radius: .8rem;
